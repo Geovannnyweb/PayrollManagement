@@ -1,7 +1,7 @@
 ﻿
 
-namespace Domain.Models
-{
+namespace Domain.Models;
+
     public abstract class Employee
     {
         public Guid EmployeeId { get; set; }
@@ -11,4 +11,4 @@ namespace Domain.Models
         
 
     }
-}
+
