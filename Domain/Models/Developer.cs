@@ -1,10 +1,16 @@
 ﻿using Domain.Enums;
 
-namespace Domain.Models;
-
-    public class Developer : Employee
+namespace Domain.Models
+{
+    public class Developer 
     {
-        public RankDeveloper RankDeveloper { get; set; }
 
-    }
+         public Guid DeveloperId { get; set; }
+         public Guid EmployeeId { get; set; }
+         public string? FullName { get; set; }
+         public int? Dni {  get; set; }
+         public RankDeveloper RankDeveloper { get; set; }
+         public virtual Employee? Employees { get; set; }
 
+}
+}
