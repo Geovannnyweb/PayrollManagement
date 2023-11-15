@@ -7,9 +7,9 @@ namespace Domain.Models {
     public class Employee
     {
         public Guid EmployeeId { get; set; }
+        public string? Name { get; set; }
    
-        public DateTime HireDate { get; set; }
-        public decimal? HoursWorked { get; set; }
+        public string? Description { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<Counter>? Counter { get; set; }
