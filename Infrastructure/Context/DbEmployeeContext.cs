@@ -3,7 +3,7 @@ using Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace Infrastructure.DBContext
+namespace Infrastructure.Context
 {
     public class DbEmployeeContext : DbContext
     {
