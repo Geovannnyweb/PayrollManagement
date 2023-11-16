@@ -29,7 +29,7 @@ namespace Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(Guid id, Employee employee)
+        public IActionResult Update(Guid id,[FromBody] Employee employee)
         {
             employeeService.Update(id, employee);
             return Ok();
