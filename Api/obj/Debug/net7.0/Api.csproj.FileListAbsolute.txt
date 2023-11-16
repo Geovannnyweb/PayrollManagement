@@ -8,7 +8,6 @@ C:\Users\LENOVO\source\repos\PayrollManagement\Api\bin\Debug\net7.0\Api.pdb
 C:\Users\LENOVO\source\repos\PayrollManagement\Api\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\LENOVO\source\repos\PayrollManagement\Api\bin\Debug\net7.0\Azure.Identity.dll
 C:\Users\LENOVO\source\repos\PayrollManagement\Api\bin\Debug\net7.0\Humanizer.dll
-C:\Users\LENOVO\source\repos\PayrollManagement\Api\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\LENOVO\source\repos\PayrollManagement\Api\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\LENOVO\source\repos\PayrollManagement\Api\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
 C:\Users\LENOVO\source\repos\PayrollManagement\Api\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll

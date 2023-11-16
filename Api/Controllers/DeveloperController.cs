@@ -23,14 +23,14 @@ namespace Api.Controllers
             return Ok();
 
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult Update(Guid id, [FromBody] Developer developer)
         {
             developerService.Update(id, developer);
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(Guid id) 
         {
             developerService.Delete(id);
