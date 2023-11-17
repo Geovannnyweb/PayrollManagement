@@ -1,3 +1,4 @@
+using Api._DependencyInjection;
 using Application.Interfaces;
 using Application.Services;
 using Domain.Models;
@@ -14,15 +15,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 builder.Services.AddSqlServer<DbEmployeeContext>(builder.Configuration.
 GetConnectionString("cnEmployee"));
-builder.Services.AddScoped<IEmployeeService, EmployeeService>();
-builder.Services.AddScoped<IDeveloperService, DeveloperService>();
-builder.Services.AddScoped<ICounterServices, CounterServices>();
-builder.Services.AddScoped<IRepository<Employee>, EmployeeRepository<Employee>>();
-builder.Services.AddScoped<IRepository<Counter>, EmployeeRepository<Counter>>();
-builder.Services.AddScoped<IRepository<Developer>, EmployeeRepository<Developer>>();
 
+
+builder.Inject();
 
 var app = builder.Build();
 
