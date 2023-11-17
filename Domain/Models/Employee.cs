@@ -1,15 +1,22 @@
 ﻿
 
-namespace Domain.Models;
+using System.Text.Json.Serialization;
 
-    public abstract class Employee
+namespace Domain.Models {
+
+    public class Employee
     {
         public Guid EmployeeId { get; set; }
-        public string? FullName { get; set; }
-        public int? Dni { get; set; }
-        public DateTime HireDate { get; set; }
-        public decimal? HoursWorked { get; set; }
-        
+        public string? Name { get; set; }
+   
+        public string? Description { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<Counter>? Counter { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Developer>? Developer { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<Manager>? Manager { get; set; }    
 
     }
-
+}
