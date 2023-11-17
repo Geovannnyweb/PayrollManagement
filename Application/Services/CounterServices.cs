@@ -2,31 +2,31 @@
 
 using Application.Interfaces;
 using Domain.Models;
-using Infrastructure.Context;
+using Infrastructure.Interfaces;
 
 namespace Application.Services
 {
     public class CounterServices : ICounterServices
     {
-        private readonly DbEmployeeContext context;
+        private readonly IRepository<Counter> _counterRepository;
 
-        public CounterServices(DbEmployeeContext dbcontext) {
-            context = dbcontext;
+        public CounterServices(IRepository<Counter> counterRepository) {
+         
+            _counterRepository = counterRepository;
         }
 
         public IEnumerable<Counter> Get()
         {
-            return context.Counters;
+            return _counterRepository.GetAll();
         }
         public void Save(Counter counter)
         {
-            context.Add(counter);
-            context.SaveChanges();
+            _counterRepository.Save(counter);
         }
 
         public void Update(Guid id, Counter counter)
         {
-            var currentCounter = context.Counters.Find(id);
+            var currentCounter = _counterRepository.GetById(id);
 
             if (currentCounter != null)
             {
@@ -36,20 +36,15 @@ namespace Application.Services
                 currentCounter.HireDate = counter.HireDate;
                 currentCounter.YearsOfExperiences = counter.YearsOfExperiences;
 
-                context.Counters.Add(counter);
-                context.SaveChanges();
+                _counterRepository.Update(currentCounter);
             }
+
         }
 
         public void Delete(Guid id)
         {
-            var currentCounter = context.Counters.Find(id);
-
-            if(currentCounter != null)
-            {
-                context.Remove(currentCounter);
-                context.SaveChanges();
-            }
+            _counterRepository.GetById(id);
+            _counterRepository.Delete(id);
         }
 
 

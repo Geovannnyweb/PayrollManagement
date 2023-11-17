@@ -1,50 +1,46 @@
 ﻿using Application.Interfaces;
 using Domain.Models;
-using Infrastructure.Context;
+using Infrastructure.Interfaces;
 
 namespace Application.Services
 {
     public class EmployeeService : IEmployeeService
     {
-        private readonly DbEmployeeContext context;
+        private readonly IRepository<Employee> _employeeRepository;
 
-        public EmployeeService(DbEmployeeContext dbcontext)
+        public EmployeeService(IRepository<Employee> employeeRepository)
         {
-            context = dbcontext;
+            _employeeRepository = employeeRepository;
         }
 
         public IEnumerable<Employee> Get()
         {
-            return context.Employees;
+            return _employeeRepository.GetAll();
         }
 
         public void Save(Employee employee)
         {
-            context.Add(employee);
-            context.SaveChanges();
+            _employeeRepository.Save(employee);
         }
 
         public void Update(Guid id, Employee employee)
         {
-            var currentEmployee = context.Employees.Find(id);
+            var currentEmployee = _employeeRepository.GetById(id);
 
             if (currentEmployee != null) {
                 currentEmployee.Name = employee.Name;
                 currentEmployee.Description = employee.Description;
 
-                context.Employees.Update(currentEmployee);
-                context.SaveChanges();
+                _employeeRepository.Update(currentEmployee);
+
             }
         }
         public void Delete(Guid id)
         {
-            var currentEmployee = context.Employees.Find(id);
+               _employeeRepository.GetById(id);
+                _employeeRepository.Delete(id);
+               
 
-            if (currentEmployee != null)
-            {
-                context.Remove(currentEmployee);
-                context.SaveChanges();
-            }
         }
     }
 }

@@ -1,6 +1,8 @@
 using Application.Interfaces;
 using Application.Services;
+using Domain.Models;
 using Infrastructure.Context;
+using Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +19,10 @@ GetConnectionString("cnEmployee"));
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IDeveloperService, DeveloperService>();
 builder.Services.AddScoped<ICounterServices, CounterServices>();
+builder.Services.AddScoped<IRepository<Employee>, EmployeeRepository<Employee>>();
+builder.Services.AddScoped<IRepository<Counter>, EmployeeRepository<Counter>>();
+builder.Services.AddScoped<IRepository<Developer>, EmployeeRepository<Developer>>();
+
 
 var app = builder.Build();
 

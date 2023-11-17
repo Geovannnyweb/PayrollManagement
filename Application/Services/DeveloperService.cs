@@ -1,32 +1,32 @@
 ﻿using Application.Interfaces;
 using Domain.Models;
-using Infrastructure.Context;
+using Infrastructure.Interfaces;
 
 namespace Application.Services
 {
     public class DeveloperService : IDeveloperService
     {
-        private readonly DbEmployeeContext context;
+        private readonly IRepository<Developer> _developerRepository;
 
-        public DeveloperService(DbEmployeeContext dbcontext)
+        public DeveloperService(IRepository<Developer> developerRepository)
         {
-            context = dbcontext;
+            _developerRepository = developerRepository;
         }
 
         public IEnumerable<Developer> Get()
         {
-            return context.Developers;
+            return _developerRepository.GetAll();
         }
 
         public void Save(Developer developer)
         {
-            context.Add(developer);
-            context.SaveChanges();
+            _developerRepository.Save(developer);
         }
 
         public void Update(Guid id, Developer developer)
         {
-            var currentDeveloper = context.Developers.Find(id);
+           
+            var currentDeveloper = _developerRepository.GetById(id);
 
             if (currentDeveloper != null)
             {
@@ -35,24 +35,15 @@ namespace Application.Services
                 currentDeveloper.HireDate = currentDeveloper.HireDate;
                 currentDeveloper.HoursWorked = currentDeveloper.HoursWorked;
                 currentDeveloper.RankDeveloper = currentDeveloper.RankDeveloper;
-                
-                context.Developers.Update(currentDeveloper);
-                context.SaveChanges();
+
+                _developerRepository.Update(currentDeveloper);
             }
-
-
         }
 
         public void Delete(Guid id)
         {
-            var currentDeveloper = context.Developers.Find(id);
-
-            if (currentDeveloper != null)
-            {
-                context.Remove(currentDeveloper);
-                context.SaveChanges();
-
-            }
+            _developerRepository.GetById(id);
+            _developerRepository.Delete(id);
 
         }
     }
