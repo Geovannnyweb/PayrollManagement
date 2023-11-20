@@ -1,6 +1,4 @@
-﻿using Domain.Models;
-using Infrastructure.Interfaces;
-
+﻿using Application.Interfaces;
 
 namespace Infrastructure.Context
 {

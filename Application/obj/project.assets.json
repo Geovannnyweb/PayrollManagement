@@ -1084,22 +1084,6 @@
         "runtime": {
           "bin/placeholder/Domain.dll": {}
         }
-      },
-      "Infrastructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "7.0.13",
-          "Microsoft.EntityFrameworkCore.InMemory": "7.0.13",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.13"
-        },
-        "compile": {
-          "bin/placeholder/Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Infrastructure.dll": {}
-        }
       }
     }
   },
@@ -2941,17 +2925,11 @@
       "type": "project",
       "path": "../Domain/Domain.csproj",
       "msbuildProject": "../Domain/Domain.csproj"
-    },
-    "Infrastructure/1.0.0": {
-      "type": "project",
-      "path": "../Infrastructure/Infrastructure.csproj",
-      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Domain >= 1.0.0",
-      "Infrastructure >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.13",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.13",
       "Microsoft.EntityFrameworkCore.InMemory >= 7.0.13",
@@ -2994,9 +2972,6 @@
           "projectReferences": {
             "C:\\Users\\LENOVO\\source\\repos\\PayrollManagement\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\LENOVO\\source\\repos\\PayrollManagement\\Domain\\Domain.csproj"
-            },
-            "C:\\Users\\LENOVO\\source\\repos\\PayrollManagement\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\LENOVO\\source\\repos\\PayrollManagement\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
